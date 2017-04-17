@@ -1,15 +1,10 @@
 class FindPairs
-def find_pair(first, first_idx, arr, target)
-	arr.find_index{ |i| i + first == target}
-end
-
-def find_pairs(arr, target)
-  arr.each_with_index do |i, idx|
-  	puts "#{i}, #{idx}"
-  	start_idx = idx+1
-  	second_idx = find_pair(i, idx, arr[start_idx..-1], target)
-  	return [i, idx, arr[second_idx+start_idx], second_idx+start_idx] if second_idx
-  end
-end
-
+	def find_pairs(arr, target)
+		h = Hash.new
+	  arr.each_with_index do |i, idx|
+	  	h[i] = idx unless h[i]
+	  	reqd = target - i
+	  	return [i,idx,reqd,h[reqd]] if h[reqd]
+	  end
+	end
 end
