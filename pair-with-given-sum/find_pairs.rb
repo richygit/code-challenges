@@ -3,7 +3,7 @@ def find_pair(first, first_idx, arr, target)
 	arr.find_index{ |i| i + first == target}
 end
 
-def find_pairs_naive(arr, target)
+def find_pairs(arr, target)
   arr.each_with_index do |i, idx|
   	puts "#{i}, #{idx}"
   	start_idx = idx+1
